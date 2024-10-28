@@ -1,25 +1,39 @@
-import logo from './logo.svg';
-import './App.css';
+import React from 'react';
+import { Grid, Container } from '@mui/material';
+import Sidebar from './components/Sidebar';
+import DashboardMetrics from './components/DashboardMetrices';
+import Opportunities from './components/Opportunities';
+import MarketTrends from './components/MarketTrends';
+import Visibility from './components/Visibility';
+import Trending from './components/Trending';
 
-function App() {
+const App = () => {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div style={{ display: 'flex' }}>
+      <Sidebar />
+      <div style={{ flexGrow: 1 }}>
+        <Container>
+          <Grid container spacing={3}>
+            <Grid item xs={12}>
+              <DashboardMetrics />
+            </Grid>
+            <Grid item xs={12} md={6}>
+              <Opportunities />
+            </Grid>
+            <Grid item xs={12} md={6}>
+              <MarketTrends />
+            </Grid>
+            <Grid item xs={12} md={6}>
+              <Trending/>
+            </Grid>
+            <Grid item xs={12} md={6}>
+              <Visibility />
+            </Grid>
+          </Grid>
+        </Container>
+      </div>
     </div>
   );
-}
+};
 
 export default App;
